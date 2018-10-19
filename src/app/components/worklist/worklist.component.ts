@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
 import { Shortcut } from '../../models/shortcut';
 
 
@@ -9,6 +9,19 @@ import { Shortcut } from '../../models/shortcut';
 })
 export class WorklistComponent implements OnInit {
   @Input() shortcut: Shortcut;
+
+  private _test = null;
+  @Input()
+  set test(test: Shortcut) {
+    this._test = test;
+  }
+  get test(): Shortcut {
+    return _test;
+  }
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    //alert('aa');
+  }
 
   constructor() { }
 

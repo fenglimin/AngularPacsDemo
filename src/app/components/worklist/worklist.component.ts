@@ -16,7 +16,7 @@ export class WorklistComponent implements OnInit {
     this._test = test;
   }
   get test(): Shortcut {
-    return _test;
+    return this._test;
   }
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {

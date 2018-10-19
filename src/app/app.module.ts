@@ -10,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ViewerComponent } from './components/viewer/viewer.component';
 import { ViewerShellComponent } from './components/viewer-shell/viewer-shell.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ViewerToolbarComponent } from './components/viewer-toolbar/viewer-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     WorklistShellComponent,
     NavigationComponent,
     ViewerComponent,
-    ViewerShellComponent
+    ViewerShellComponent,
+    ViewerToolbarComponent
   ],
   imports: [
     BrowserModule,

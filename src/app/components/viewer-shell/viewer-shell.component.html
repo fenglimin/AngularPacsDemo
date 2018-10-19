@@ -1,6 +1,22 @@
-<div id="DivLeft">
-  <app-navigation></app-navigation>
-</div>
-<div id="DivRight">
-  <app-viewer></app-viewer>
-</div>
+<tr>
+  <td>
+    <div id="DivLeft">
+      <app-navigation></app-navigation>
+    </div>
+  </td>
+  <td>
+    <div id="DivToolbar">
+      <app-viewer-toolbar (layout)="onLayoutChanged($event)"></app-viewer-toolbar>
+    </div>
+    <div id="DivViewerBack">
+      <tr *ngFor="let a of row; let rowIndex = index">
+        <td *ngFor="let b of col; let colIndex = index">
+          <div name="DivViewer" id="DivViewer">
+            <app-viewer [rowIndex]="rowIndex" [colIndex]="colIndex"></app-viewer>  
+          </div>
+          
+        </td>
+      </tr>
+    </div>
+  </td>
+</tr>

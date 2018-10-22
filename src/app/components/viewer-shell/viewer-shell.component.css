@@ -1,6 +1,6 @@
 :root {
   --view-width: 764px;
-  --view-height: 618px
+  --view-height: 618px;
 }
 
 #DivLeft
@@ -44,13 +44,18 @@
 }
 
 
-#DivViewer
+.DivViewer
 {
   display:block;
   float:left;
-  width: var(--view-width);
+  width: 200px;
   margin:0 auto;
-  height: var(--view-height);
+  /*border-top: solid 2px #FFFFFF;
+  border-bottom: solid 2px #FFFFFF;
+  border-left: solid 2px #FFFFFF;
+  border-right: solid 2px #FFFFFF;*/
+  border: 2px solid white;
+  height: 300px;
   background-color: #aaaaaa;
   color: #F5F5F5;
 }

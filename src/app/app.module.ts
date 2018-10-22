@@ -11,6 +11,7 @@ import { ViewerComponent } from './components/viewer/viewer.component';
 import { ViewerShellComponent } from './components/viewer-shell/viewer-shell.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ViewerToolbarComponent } from './components/viewer-toolbar/viewer-toolbar.component';
+import { ThumbnailComponent } from './components/thumbnail/thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ViewerToolbarComponent } from './components/viewer-toolbar/viewer-toolb
     NavigationComponent,
     ViewerComponent,
     ViewerShellComponent,
-    ViewerToolbarComponent
+      ViewerToolbarComponent,
+      ThumbnailComponent
   ],
   imports: [
     BrowserModule,

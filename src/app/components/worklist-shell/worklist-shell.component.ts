@@ -18,6 +18,6 @@ export class WorklistShellComponent implements OnInit {
   }
 
   onSelected(shortcut: Shortcut) {
-    this.selectedShortcut = shortcut;
+      this.selectedShortcut = shortcut;
   }
 }

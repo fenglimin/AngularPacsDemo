@@ -19,6 +19,10 @@ export class WorklistComponent implements OnInit {
     return this._test;
   }
 
+  test1() {
+      alert('test');
+  }
+
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
     //alert('aa');
   }

@@ -11,12 +11,15 @@
     <div id="DivViewerBack">
       <tr *ngFor="let a of row; let rowIndex = index">
         <td *ngFor="let b of col; let colIndex = index">
-          <div name="DivViewer" id="DivViewer">
-            <app-viewer [rowIndex]="rowIndex" [colIndex]="colIndex"></app-viewer>  
+          <div class="DivViewer" [id]="'DivViewer'+rowIndex+colIndex"
+               (click)="onSelected(rowIndex, colIndex)"
+               [style.width]="(764/col.length-4)+'px'" 
+               [style.height]="(618/row.length-4)+'px'">
+            <app-viewer #imageViewer [layout]="{rowIndex:rowIndex, colIndex:colIndex, totalRow:row.length, totalCol:col.length}" [hasSubLayout]="false"></app-viewer>  
           </div>
-          
         </td>
       </tr>
     </div>
   </td>
 </tr>
+ 

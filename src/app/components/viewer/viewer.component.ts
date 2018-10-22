@@ -7,12 +7,9 @@ import { Layout } from '../../models/layout';
   styleUrls: ['./viewer.component.css']
 })
 export class ViewerComponent implements OnInit {
+  Arr = Array; //Array type captured in a variable
     @Input() layout: Layout;
-    @Input() hasSubLayout: boolean;
-    @Input() subLayout: Layout;
 
-    row = new Array(1);
-    col = new Array(1);
     selectedDivId = "";
 
   constructor() {
@@ -27,4 +24,6 @@ export class ViewerComponent implements OnInit {
           alert("find me");
       }
   }
+
+
 }

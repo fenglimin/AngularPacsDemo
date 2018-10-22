@@ -8,3 +8,11 @@
   color: #F5F5F5;
   height: 20px;
 }
+
+/*#DivTop .navbar-fixed-top{
+  border-width: 0 0 2px 0;
+  -webkit-border-image: -webkit-linear-gradient(left, #ff9900, #5c492c) 100% 1;
+  border-color: #ff9900;
+  border-image: linear-gradient(left, #ff9900, #5c492c) 100% 1;
+  border-style: solid;
+}*/

@@ -1,13 +1,22 @@
 ﻿export class Layout {
   rowIndex: number;
   colIndex: number;
-  totalRow: number;
-  totalCol: number;
+  rowCountParent: number;
+  colCountParent: number;
+  rowCountChild: number;
+  colCountChild: number;
+  width: number;
+  height: number;
 
   constructor() {
-      this.rowIndex = 1;
-      this.colIndex = 1;
-      this.totalRow = 1;
-      this.totalCol = 1;
+    this.rowIndex = 0;
+    this.colIndex = 0;
+    this.rowCountParent = 1;
+    this.colCountParent = 1;
+    this.rowCountChild = 1;
+    this.colCountChild = 1;
+    this.width = 1024;
+    this.height = 768;
+
   }
 }

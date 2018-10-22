@@ -1,17 +1,21 @@
-<div *ngIf="hasSubLayout; else elseBlock">
-    <tr *ngFor="let a of row; let rowIndex = index">
-        <td *ngFor="let b of col; let colIndex = index">
-            <div class="DivViewer" [id]="'DivViewer'+rowIndex+colIndex"
-                 (click)="onSelected(rowIndex, colIndex)"
-                 [style.width]="(382/col.length-4)+'px'"
-                 [style.height]="(309/row.length-4)+'px'">
-                <app-viewer [subLayout]="{rowIndex:rowIndex, colIndex:colIndex, totalRow:row.length, totalCol:col.length}" [hasSubLayout]="false"></app-viewer>
-            </div>
+<div *ngIf="layout.rowCountChild*layout.colCountChild > 1; else elseBlock">
+    <tr *ngFor="let a of Arr(layout.rowCountChild).fill(1); let rowIndex = index">
+        <td *ngFor="let b of Arr(layout.colCountChild).fill(1); let colIndex = index">
+          <div class="DivViewer" [id]="'DivViewer'+layout.rowIndex+layout.colIndex+rowIndex+colIndex"
+               (click)="onSelected(rowIndex, colIndex)"
+               [style.width]="(layout.width/layout.colCountChild-4)+'px'"
+               [style.height]="(layout.height/layout.rowCountChild-4)+'px'">
+            <app-viewer [layout]="{rowIndex:rowIndex, colIndex:colIndex, 
+                                   rowCountParent:layout.rowCountChild, colCountParent:layout.colCountChild, 
+                                   rowCountChild:1, colCountChild:1, 
+                                   width:layout.width/layout.colCountChild-4,
+                                   height:layout.height/layout.rowCountChild-4}"></app-viewer>
+          </div>
         </td>
     </tr>
 </div>
 <ng-template #elseBlock>
     <p>
-        viewer {{layout.rowIndex+1 }} - {{layout.colIndex+1}}, Sop : {{layout.rowIndex*layout.totalCol+layout.colIndex+1}}
+        Viewer {{layout.rowIndex+1 }} - {{layout.colIndex+1}}, Sop : {{layout.rowIndex*layout.colCountParent+layout.colIndex+1}}
     </p>
 </ng-template>

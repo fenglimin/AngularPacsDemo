@@ -9,10 +9,8 @@ import { Subscription }   from 'rxjs';
   styleUrls: ['./viewer-shell.component.css']
 })
 export class ViewerShellComponent implements OnInit, AfterViewInit {
-  row = new Array(1);
-  col = new Array(1);
-  rowNum = 1;
-  colNum = 1;
+  totalRow = 1;
+  totalCol = 1;
   selectedDivId = "";
 
   subscription: Subscription;
@@ -30,42 +28,17 @@ export class ViewerShellComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.viewers.forEach((item) => {
-      item.test(this.selectedDivId);
-    });
+
   }
 
   onLayoutChanged(newLayout:number): void {
-    this.rowNum = Math.trunc(newLayout / 10);
-    this.colNum = newLayout % 10;
-    this.row = new Array(this.rowNum);
-    this.col = new Array(this.colNum);
-
-
-    this.viewers.forEach((item) => {
-      item.test(this.selectedDivId);
-    });
-  }
-
-  onSelected(rowIndex: number, colIndex: number): void {
-      if (this.selectedDivId !== "") {
-          this.doSelectById(this.selectedDivId, false);
-      }
-
-      this.selectedDivId = "DivViewer" + rowIndex + colIndex;
-      this.doSelectById(this.selectedDivId, true);
-
-      var imageSop = rowIndex * this.colNum + colIndex + 1;
-      this.imageSelectorService.selectImage(imageSop.toString());
-
-    this.viewers.forEach((item) => {
-      item.test(this.selectedDivId);
-    });
+    this.totalRow = Math.trunc(newLayout / 10);
+    this.totalCol = newLayout % 10;
   }
 
   doSelectById(id: string, selected: boolean): void {
-      var o = document.getElementById(id);
-      if (o !== null) {
+    const o = document.getElementById(id);
+    if (o !== undefined && o !== null) {
           o.style.border = selected ? '2px solid red' : '2px solid white';
       }
   }
@@ -73,8 +46,8 @@ export class ViewerShellComponent implements OnInit, AfterViewInit {
   doSelectBySop(imageSop: string): void {
       var imageNum: number = parseInt(imageSop);
 
-      var rowIndex = Math.trunc((imageNum - 1) / this.colNum);
-      var colIndex = (imageNum - 1) % this.colNum;
+      var rowIndex = Math.trunc((imageNum - 1) / this.totalCol);
+      var colIndex = (imageNum - 1) % this.totalCol;
 
       if (this.selectedDivId !== "") {
           this.doSelectById(this.selectedDivId, false);

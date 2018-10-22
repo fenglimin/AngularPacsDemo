@@ -15,4 +15,8 @@ export class ViewerToolbarComponent implements OnInit {
   doSplitLayout(layoutStyle: number): void {
     this.layout.emit(layoutStyle);
   }
+
+  doSplitSubLayout(subLayoutStyle: number): void {
+  
+  }
 }

@@ -6,10 +6,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-    thumbnails = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+    thumbnails = [];
         
     imageSopSelected: string;
     constructor() {
+      for (var i = 0; i < 2; i ++)
+        for (var j = 0; j < 3; j ++)
+          for (var m = 0; m < 2; m ++)
+            for (var n = 0; n < 2; n ++) {
+              var item = "";
+              item = item + i + j + m + n;
+              this.thumbnails.push(item);
+            }
 
     }
 

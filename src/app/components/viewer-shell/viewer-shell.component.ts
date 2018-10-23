@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChildren, QueryList, AfterViewInit  } from '@angular/core';
-import { ViewerComponent } from '../viewer/viewer.component';
+import { LayoutViewerComponent } from '../layout-viewer/layout-viewer.component';
 
 @Component({
   selector: 'app-viewer-shell',
@@ -7,10 +7,11 @@ import { ViewerComponent } from '../viewer/viewer.component';
   styleUrls: ['./viewer-shell.component.css']
 })
 export class ViewerShellComponent implements OnInit, AfterViewInit {
+  Arr = Array; //Array type captured in a variable
   totalRow = 1;
   totalCol = 1;
 
-  @ViewChildren(ViewerComponent) viewers: QueryList<ViewerComponent>;
+  @ViewChildren(LayoutViewerComponent) viewers: QueryList<LayoutViewerComponent>;
 
   constructor() {
   }

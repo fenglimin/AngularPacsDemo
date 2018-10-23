@@ -9,7 +9,14 @@
       <app-viewer-toolbar (layout)="onLayoutChanged($event)"></app-viewer-toolbar>
     </div>
     <div id="DivViewerBack">
-      <app-viewer [layout]="{idParent:'', id:'', rowIndex:0, colIndex:0, rowCountParent:1, colCountParent:1, rowCountChild:totalRow, colCountChild:totalCol, width:764, height:618}"></app-viewer>  
+      <tr *ngFor="let a of Arr(totalRow).fill(1); let rowIndex = index">
+        <td *ngFor="let b of Arr(totalCol).fill(1); let colIndex = index">
+          <app-layout-viewer [groupLayout]="{
+                rowIndex:rowIndex, colIndex:colIndex, 
+                rowCountChild:1, colCountChild:1, 
+                width:764/totalCol-4,height:618/totalRow-4}"></app-layout-viewer>
+        </td>
+      </tr>
     </div>
   </td>
 </tr>

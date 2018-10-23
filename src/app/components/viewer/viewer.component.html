@@ -1,21 +1,24 @@
 <div *ngIf="layout.rowCountChild*layout.colCountChild > 1; else elseBlock">
-    <tr *ngFor="let a of Arr(layout.rowCountChild).fill(1); let rowIndex = index">
-        <td *ngFor="let b of Arr(layout.colCountChild).fill(1); let colIndex = index">
-          <div class="DivViewer" [id]="'DivViewer'+layout.rowIndex+layout.colIndex+rowIndex+colIndex"
-               (click)="onSelected(rowIndex, colIndex)"
-               [style.width]="(layout.width/layout.colCountChild-4)+'px'"
-               [style.height]="(layout.height/layout.rowCountChild-4)+'px'">
-            <app-viewer [layout]="{rowIndex:rowIndex, colIndex:colIndex, 
-                                   rowCountParent:layout.rowCountChild, colCountParent:layout.colCountChild, 
-                                   rowCountChild:1, colCountChild:1, 
-                                   width:layout.width/layout.colCountChild-4,
-                                   height:layout.height/layout.rowCountChild-4}"></app-viewer>
-          </div>
+  <tr *ngFor="let a of Arr(layout.rowCountChild).fill(1); let rowIndex = index">
+    <td *ngFor="let b of Arr(layout.colCountChild).fill(1); let colIndex = index">
+      <app-viewer [layout]="{
+                  idParent:layout.id,
+                  id:''+rowIndex+colIndex,
+                  rowIndex:rowIndex, colIndex:colIndex, 
+                  rowCountParent:layout.rowCountChild, colCountParent:layout.colCountChild, 
+                  rowCountChild:1, colCountChild:1, 
+                  width:layout.width/layout.colCountChild-4,
+                  height:layout.height/layout.rowCountChild-4}"></app-viewer>
         </td>
     </tr>
 </div>
 <ng-template #elseBlock>
-    <p>
+  <div class="DivViewer" [id]="'DivViewer' + layout.idParent + layout.rowIndex + layout.colIndex"
+       (click)="onSelected()"
+       [style.width]="layout.width+'px'"
+       [style.height]="layout.height+'px'">
+      <p>
         Viewer {{layout.rowIndex+1 }} - {{layout.colIndex+1}}, Sop : {{layout.rowIndex*layout.colCountParent+layout.colIndex+1}}
-    </p>
+      </p>
+  </div>
 </ng-template>

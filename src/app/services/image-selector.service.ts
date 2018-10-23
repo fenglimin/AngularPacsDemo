@@ -6,14 +6,25 @@ import { Subject }    from 'rxjs';
 })
 export class ImageSelectorService {
 
-    // Observable number sources
-    private imageSelectedSource = new Subject<string>();
+  // Observable string sources
+  private imageSelectedSource = new Subject<string>();
 
-    // Observable number streams
-    imageSelected$ = this.imageSelectedSource.asObservable();
+  // Observable number sources
+  private subLayoutChangedSource = new Subject<number>();
 
-    // Service number commands
-    selectImage(imageSopSelected: string) {
-        this.imageSelectedSource.next(imageSopSelected);
-    }
+  // Observable string streams
+  imageSelected$ = this.imageSelectedSource.asObservable();
+
+  // Observable number streams
+  subLayoutChanged$ = this.subLayoutChangedSource.asObservable();
+
+  // Service string commands
+  selectImage(imageSopSelected: string) {
+      this.imageSelectedSource.next(imageSopSelected);
+  }
+
+  // Service number commands
+  changeSubLayout(subLayoutStyle: number) {
+    this.subLayoutChangedSource.next(subLayoutStyle);
+  }
 }

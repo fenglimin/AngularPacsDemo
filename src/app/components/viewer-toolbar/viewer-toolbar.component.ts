@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { ImageSelectorService } from '../../services/image-selector.service';
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-viewer-toolbar',
@@ -7,7 +9,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ViewerToolbarComponent implements OnInit {
   @Output() layout = new EventEmitter<number>();
-  constructor() { }
+  constructor(private imageSelectorService: ImageSelectorService) { }
 
   ngOnInit() {
   }
@@ -17,6 +19,6 @@ export class ViewerToolbarComponent implements OnInit {
   }
 
   doSplitSubLayout(subLayoutStyle: number): void {
-  
+    this.imageSelectorService.changeSubLayout(subLayoutStyle);
   }
 }

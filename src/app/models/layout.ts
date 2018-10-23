@@ -1,4 +1,6 @@
 ﻿export class Layout {
+  id:string;
+  idParent:string;
   rowIndex: number;
   colIndex: number;
   rowCountParent: number;
@@ -9,6 +11,8 @@
   height: number;
 
   constructor() {
+    this.id = "";
+    this.idParent = "";
     this.rowIndex = 0;
     this.colIndex = 0;
     this.rowCountParent = 1;

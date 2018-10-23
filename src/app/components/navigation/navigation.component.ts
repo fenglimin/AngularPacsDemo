@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-    thumbnails = ['1', '2', '3', '4', '5', '6'];
+    thumbnails = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
         
     imageSopSelected: string;
     constructor() {
